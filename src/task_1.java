@@ -16,7 +16,7 @@ public class task_1 {
         System.out.println(solve1(heap1,heap2,0, list));
         System.out.println(solve2(heap1,heap2,0,list));
         System.out.println(solve2_1(heap1,heap2,0,list));
-        System.out.println(solve3(heap1,heap2,0,list, 10));
+        System.out.println(solve3(heap2,0,list, 10));
     }
 
     public static int solve1(int heap1, int heap2, int index, int[] list) {
@@ -41,12 +41,12 @@ public class task_1 {
         }
     }
 
-    public static boolean solve3(int heap1, int heap2, int index, int[] list, int Num) {
+    public static boolean solve3(int heap2, int index, int[] list, int Num) {
         if (index == list.length -1) {
             return heap2 == Num;
         } else {
-            return ((solve3(heap1, heap2 + list[index], index +1, list, Num)||
-                    solve3(heap1,heap2,index+1, list, Num)));
+            return ((solve3(heap2 + list[index], index +1, list, Num)||
+                    solve3(heap2,index+1, list, Num)));
         }
     }
 
